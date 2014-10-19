@@ -1,8 +1,8 @@
 # Reproducible Research: Peer Assessment 1
 Lenny Fenster  
 Saturday, October 18, 2014  
-  
-  
+
+
 ## Assignment
   
 It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the "quantified self" movement -- a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized both because the raw data are hard to obtain and there is a lack of statistical methods and software for processing and interpreting the data.
@@ -48,7 +48,7 @@ stepsPerDay<-aggregate(omittedData$steps, list(Date=omittedData$date), sum)
 hist(stepsPerDay$x, xlab="Number of Steps", main="Histogram of Steps per Day", breaks=length(stepsPerDay$Date))
 ```
 
-![plot of chunk unnamed-chunk-4](./PA1_template_files/figure-html/unnamed-chunk-4.png) 
+![plot of chunk unnamed-chunk-4](figures/unnamed-chunk-4.png) 
 
 The mean and median are calculated using the mean and median functions for this dataset's calculated value
 
@@ -69,7 +69,7 @@ avgStepsPerInterval<-tapply(activities$steps, activities$interval, mean, na.rm=T
 plot(x=dimnames(avgStepsPerInterval)[[1]], avgStepsPerInterval, type="l", xlab="Interval", ylab="Average steps", main="Average Steps per Interval")
 ```
 
-![plot of chunk unnamed-chunk-6](./PA1_template_files/figure-html/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-6](figures/unnamed-chunk-6.png) 
 
 To determine which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps, we use the max function to find the index for interval and then use that index to ascertain the value. 
 
@@ -119,7 +119,7 @@ nonOmittedStepsPerDay<-aggregate(imputedSteps$steps, list(Date=imputedSteps$date
 hist(nonOmittedStepsPerDay$x, xlab="Number of Steps", main="Histogram of Steps per Day (with Filled in Data)", breaks=length(nonOmittedStepsPerDay$Date))
 ```
 
-![plot of chunk unnamed-chunk-10](./PA1_template_files/figure-html/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-10](figures/unnamed-chunk-10.png) 
 
 The mean and median total number of steps taken per day is calculated for this new dataset with imputed data.
 
@@ -143,6 +143,6 @@ weekdayPlot<-xyplot(weekdayAvgSteps$x~weekdayAvgSteps$Interval|weekdayAvgSteps$W
 print(weekdayPlot)
 ```
 
-![plot of chunk unnamed-chunk-12](./PA1_template_files/figure-html/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-12](figures/unnamed-chunk-12.png) 
 
 
